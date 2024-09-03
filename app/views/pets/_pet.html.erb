@@ -1,0 +1,51 @@
+<div id="<%= dom_id pet %>">
+  <p>
+    <strong>Name:</strong>
+    <%= pet.name %>
+  </p>
+
+  <p>
+    <strong>Tutor:</strong>
+    <%= pet.tutor %>
+  </p>
+
+
+
+  <p>
+    <strong>Race:</strong>
+    <%= pet.pet_race %>
+  </p>
+
+  <p>
+    <strong>Tutor's contact:</strong>
+    <%= pet.tutors_contact %>
+  </p>
+
+  <p>
+    <strong>Coat Color:</strong>
+    <%= pet.pet_coat_color %>
+  </p>
+
+  <p>
+    <strong>Photo:</strong>
+    <%= pet.pet_photo %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= pet.pet_city %>
+  </p>
+
+  <p>
+    <strong>Instagram:</strong>
+    <%= pet.pet_instagram %>
+  </p>
+
+  <p>
+    <strong>Tik Tok:</strong>
+    <%= pet.pet_tiktok %>
+  </p>
+
+   <%= image_tag(url_for(pet.qrcode)) %>
+
+</div>
