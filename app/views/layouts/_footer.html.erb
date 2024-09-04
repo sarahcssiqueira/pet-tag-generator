@@ -1,0 +1,33 @@
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>
+           We are dedicated to providing innovative solutions to keep your pets safe and secure. 
+           Our mission is to combine technology with convenience, making pet care easier and more 
+           efficient for pet owner.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+            <li><%= link_to 'Home', root_path, class: 'text-white' %></li>
+            <li><%= link_to 'Pets', pets_path, class: 'text-white' %></li>
+            <%
+=begin%>
+ <li><%= link_to 'Privacy Policy', privacy_policy_path, class: 'text-white' %></li> 
+<%
+=end%>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>Email:</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <p>&copy; 2024 Pet Tag Generator. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

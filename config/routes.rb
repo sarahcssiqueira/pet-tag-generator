@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [ :new, :create, :show, :delete ]
   resources :pets, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
   resources :sessions, only: [ :new, :create, :destroy ]
+  resources :privacy_policy
 
   get "home/index"
   root "home#index"
@@ -19,4 +20,11 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new", as: "login"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy", as: "logout"
+
+  # Privacy Policy
+  get "/privacy-policy", to: "privacy_policy#index"
+
+
+  # Define a route for the external URL
+  get "github_repo", to: proc { |env| [ 302, { "Location" => "https://github.com/sarahcssiqueira/pet-tag-generator" }, [] ] }
 end

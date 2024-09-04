@@ -56,6 +56,15 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# QR code generation
+# RQRCode gem for generating QR codes
 gem "rqrcode", "~> 2.2"
 
+# Password management (if uncommented earlier)
 gem "bcrypt", "~> 3.1.7"
+
+# Frontend styling
+# Bootstrap for styling and responsive design
+gem "bootstrap"
+# SassC-rails for integrating Sass with Rails
+gem "sassc-rails"

@@ -1,19 +1,32 @@
 <!-- app/views/layouts/_navbar.html.erb -->
-<nav>
-  <ul>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'Pets', pets_path %></li>
-    <li><%= link_to 'Users', users_path %></li>
-    <%
-=begin%>
- <% if user_signed_in? %>
-      <li>Welcome, <%= current_user.name %>!</li>
-      <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to 'Login', new_user_session_path %></li>
-      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-    <% end %> 
-<%
-=end%>
-  </ul>
-</nav>
+
+<div class="container-flouid">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <h3>Pet Tag Generator</h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: 'nav-link active' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Pets', pets_path, class: 'nav-link active' %>
+          </li>
+           <li class="nav-item">
+            <%= link_to 'Open Source', github_repo_path, class: 'nav-link active' %>
+          </li>
+        </ul>
+        <form class="">
+          <%= link_to 'Login', login_path, class: 'btn btn-outline-primary mr-2' %>
+          <%= link_to 'Become Member', pets_path, class: 'btn btn-outline-success' %>
+        </form>
+
+      </div>
+    </div>
+  </nav>
+</div>

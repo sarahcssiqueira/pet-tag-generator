@@ -19,15 +19,13 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= yield %>
-    <% if logged_in? %>
-    <%= link_to 'Log Out', logout_path, method: :delete %>
-    <% else %>
-    <%= link_to 'Log In', login_path %>
-    <%= link_to 'Sign Up', new_user_path %>
 
-    <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="container my-4 py-4">
+        <%= yield %>
+    </div>
 
-<% end %>
   </body>
+
+    <%= render 'layouts/footer' %>
+    
 </html>

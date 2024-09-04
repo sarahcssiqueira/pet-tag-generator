@@ -1,51 +1,91 @@
-# Pet Register System
+# Pet Tag Generator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Release Version](https://img.shields.io/github/release/sarahcssiqueira/pet-tag-generator.svg)](https://github.com/sarahcssiqueira/pet-tag-generator/releases/latest)
+[![Support Level](https://img.shields.io/badge/support-may_take_time-yellow.svg)](#support-level)
 
-Things you may want to cover:
+Welcome to the Pet Tag Generator! This open-source project provides an easy way to create personalized pet tags with QR codes, ensuring your pets are always safe and secure.
 
-* Ruby version
+## Features
 
-* System dependencies
+- **Free and Easy**: Create pet tags at no cost.
+- **Custom QR Codes**: Generate unique QR codes linked to a webpage with your pet's information.
+- **Update Anytime**: Modify your pet’s information through the website as needed.
+- **Secure**: Only authorized users can view or update the pet information.
+- **Vet-Friendly**: Ideal for veterinarians to use in their consultories for providing clients with customizable pet tags.
 
-* Configuration
+## Getting Started
 
-* Database creation
+To get started with the Pet Tag Generator, follow these steps:
 
-* Database initialization
+### Prerequisites
 
-* How to run the test suite
+- Ruby (version `3.3.3` or later)
+- Rails (version `7.2.1` or later)
+- PostgreSQL (or your preferred database)
+- Node.js and Yarn (for managing JavaScript dependencies)
 
-* Services (job queues, cache servers, search engines, etc.)
+### Installation
 
-* Deployment instructions
+1. Clone the Repository
 
-* ...
+    `git clone https://github.com/your-username/pet-tag-generator.git`
 
-## Webpacker
+    `cd -pet-tag-generator`
 
-. Install Webpacker
 
-If your Rails app doesn’t already use Webpacker, you can add it by running:
+2. Install Gems
 
-bash
+`bundle install`
 
-rails webpacker:install
+3. Setup Database
 
-This command sets up Webpacker in your Rails app.
-2. Enable Hot Module Replacement (HMR)
+```bash
 
-Webpacker supports HMR, which allows you to see changes in your frontend code without needing to refresh the entire page.
-a. Development Server
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-To enable HMR, you need to run the Webpack development server. Webpacker installs this automatically. You can start it by running:
+4. Run the Rails Server
 
-bash
+`rails server`
 
-bin/webpack-dev-server
+Visit http://localhost:3000 in your browser to see the application in action.
 
-This server watches your frontend files and applies updates as you make changes.
-b. Configuration
+### Usage
 
-Ensure that your config/webpacker.yml file is configured for development. By default, Webpacker is set up to use HMR in development, but you can check the development section to make sure hmr is enabled:
+- Register Your Pet: Fill out a form with your pet’s details.
+- Generate QR Code: Create and print a QR code linked to your pet’s information.
+- Attach: Put the QR code on your pet’s collar or tag.
+- Update Information: Log in to update your pet’s details as needed.
+
+### Vet Use
+
+Veterinarians can integrate this tool into their consultories, allowing pet owners to easily create and manage customized pet tags. This feature enhances the safety and security of pets and provides an additional service for clients.
+
+### Deployment
+
+
+### Contributing
+
+We welcome contributions to enhance the Free Pet Tag Generator. To contribute:
+
+- Fork the repository.
+- Create a new branch (git checkout -b feature-branch).
+- Commit your changes (git commit -am 'Add new feature').
+- Push to the branch (git push origin feature-branch).
+- Open a Pull Request.
+
+### License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+Acknowledgements
+
+- Bootstrap for styling.
+- QR Code Libraries for QR code generation.
+
+### Contact
+
+For any questions or feedback, please open an issue on GitHub.

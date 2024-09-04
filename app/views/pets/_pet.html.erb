@@ -1,51 +1,76 @@
 <div id="<%= dom_id pet %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pet.name %>
-  </p>
+  <div class="container-fluid">
+    <p>
+      <% if pet.name.present? %>
+        <strong>Name:</strong>
+        <%= pet.name %>
+      <% end %>
+    </p>
 
-  <p>
-    <strong>Tutor:</strong>
-    <%= pet.tutor %>
-  </p>
+    <p>
+      <% if pet.tutor.present? %>
+        <strong>Tutor:</strong>
+        <%= pet.tutor %>
+      <% end %>
+    </p>
 
+    <% if pet.pet_race.present? %>
+      <p>
+        <strong>Race:</strong>
+        <%= pet.pet_race %>
+      </p>
+    <% end %>
 
+    <% if pet.tutors_contact.present? %>
+      <p>
+        <strong>Tutor's contact:</strong>
+        <%= pet.tutors_contact %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Race:</strong>
-    <%= pet.pet_race %>
-  </p>
+    <% if pet.pet_coat_color.present? %>
+      <p>
+        <strong>Coat Color:</strong>
+        <%= pet.pet_coat_color %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Tutor's contact:</strong>
-    <%= pet.tutors_contact %>
-  </p>
+    <% if pet.pet_photo.present? %>
+      <p>
+        <strong>Photo:</strong><br>
+        <%= image_tag pet.pet_photo, alt: "#{pet.name} photo", class: "img-fluid" %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Coat Color:</strong>
-    <%= pet.pet_coat_color %>
-  </p>
+    <% if pet.pet_city.present? %>
+      <p>
+        <strong>City:</strong>
+        <%= pet.pet_city %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Photo:</strong>
-    <%= pet.pet_photo %>
-  </p>
+    <% if pet.pet_instagram.present? %>
+      <p>
+        <strong>Instagram:</strong>
+        <%= pet.pet_instagram %>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>City:</strong>
-    <%= pet.pet_city %>
-  </p>
+    <% if pet.pet_tiktok.present? %>
+      <p>
+        <strong>TikTok:</strong>
+        <%= pet.pet_tiktok %>
+      </p>
+    <% end %>
+  </div>
 
-  <p>
-    <strong>Instagram:</strong>
-    <%= pet.pet_instagram %>
-  </p>
+  <%= javascript_include_tag 'print_section' %>
 
-  <p>
-    <strong>Tik Tok:</strong>
-    <%= pet.pet_tiktok %>
-  </p>
+  <h3 class="mt-4">Print Pet QR Code</h3>
 
-   <%= image_tag(url_for(pet.qrcode)) %>
+  <div id="printableArea" class="mb-4">
+    <%= image_tag(url_for(pet.qrcode), class: "img-fluid") %>
+  </div>
 
+  <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')">Print</button>
 </div>

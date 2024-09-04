@@ -7,6 +7,15 @@ class Pet < ApplicationRecord
 
   # ActiveStorage association for the image
   has_one_attached :pet_photo
+  validate :pet_photo_size
+
+  private
+
+  def pet_photo_size
+    if pet_photo.attached? && pet_photo.byte_size > 1.megabyte
+      errors.add(:pet_photo, "size should be less than 1MB")
+    end
+  end
 
   include Rails.application.routes.url_helpers
 
