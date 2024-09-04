@@ -57,3 +57,5 @@ group :test do
 end
 
 gem "rqrcode", "~> 2.2"
+
+gem "bcrypt", "~> 3.1.7"

@@ -1,0 +1,9 @@
+<h1><%= @user.name %></h1>
+<p>Email: <%= @user.email %></p>
+
+<h2>Pets</h2>
+<ul>
+  <% @user.pets.each do |pet| %>
+    <li><%= link_to pet.name, pet_path(pet) %></li>
+  <% end %>
+</ul>

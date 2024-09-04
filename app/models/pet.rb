@@ -1,4 +1,6 @@
 class Pet < ApplicationRecord
+  belongs_to :user
+  # before_action :authenticate_user!, only: [ :edit, :update, :destroy ]
   # Add validations as needed
   # validates :name, presence: true
   # validates :tutor, presence: true

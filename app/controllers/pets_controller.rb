@@ -1,11 +1,8 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: %i[ show edit update destroy ]
+  before_action :set_pet, only: [ :show, :edit, :update, :destroy ]
+  before_action :authenticate_user!, only: [ :edit, :update, :destroy ]
+  before_action :authorize_pet!, only: [ :edit, :update, :destroy ]
 
-  def model_params
-    params.require(:pet).permit(:name, :tutor, :pet_birthdate, :pet_race, :tutors_contact, :pet_coat_color, :pet_photo, :pet_city, :pet_instagram, :pet_tiktok, :qrcode)
-  end
-
-  # GET /pets or /pets.json
   def index
     @pets = Pet.all
   end
@@ -26,6 +23,7 @@ class PetsController < ApplicationController
   # POST /pets or /pets.json
   def create
     @pet = Pet.new(pet_params)
+    @pet.user = current_user
 
     respond_to do |format|
       if @pet.save
@@ -62,13 +60,24 @@ class PetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pet
-      @pet = Pet.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def pet_params
-      params.require(:pet).permit(:name, :tutor, :pet_birthdate)
-    end
+  def pet_params
+    params.require(:pet).permit(:name, :tutor, :pet_birthdate, :pet_race, :tutors_contact, :pet_coat_color, :pet_photo, :pet_city, :pet_instagram, :pet_tiktok, :qrcode)
+  end
+
+  def authenticate_user!
+    redirect_to new_session_path, alert: "Please log in to access this page." unless current_user
+  end
+
+  def authorize_pet!
+    redirect_to @pet, alert: "Not authorized" unless @pet.user == current_user
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 end
