@@ -1,18 +1,22 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
   def create
     user = User.find_by(email: params[:email])
 
-    respond_to do |format|
       if user && user.authenticate(params[:password])
+
         session[:user_id] = user.id
-        format.html { redirect_back(fallback_location: root_path, notice: "Logged in successfully.") }
-        format.json { render :show, status: :created, location: user }
+        redirect_to user_path(user), notice: "Logged in successfully."
       else
-        format.html { render :new, status: :unprocessable_entity }
+        message = "Something went wrong! Make sure your username and password are correct."
+        redirect_to login_path, notice: message
       end
+  end
+
+  def login
+    if session[:user_id]
+      redirect_to user_path(session[:user_id]), notice: "You already logged in."
+    else
+      render :login
     end
   end
 

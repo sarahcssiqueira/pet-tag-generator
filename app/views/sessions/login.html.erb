@@ -1,0 +1,18 @@
+<div class="mb-4">
+  <h2 class="mb-3">Log In</h2>
+  <%= form_tag '/login', class: 'needs-validation' do %>
+    <div class="mb-3">
+      <%= label_tag :email, "Username", class: 'form-label' %>
+      <%= text_field_tag :email, nil, class: 'form-control' %>
+    </div>
+    
+    <div class="mb-3">
+      <%= label_tag :password, "Password", class: 'form-label' %>
+      <%= password_field_tag :password, nil, class: 'form-control' %>
+    </div>
+    
+    <div class="mb-3">
+      <%= submit_tag "Log In", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

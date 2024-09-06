@@ -1,9 +1,19 @@
-<h1><%= @user.name %></h1>
-<p>Email: <%= @user.email %></p>
+<h1 class="mb-4"><%= @user.name %></h1>
+<p class="mb-4">Registered e-mail: <%= @user.email %></p>
+<div class="mb-4">
+  <%= link_to 'Edit User Info', edit_user_path(@user), class: 'btn btn-warning' %>
+</div>
 
-<h2>Pets</h2>
-<ul>
+<h2 class="mb-4">My Pets</h2>
+<div class="row">
   <% @user.pets.each do |pet| %>
-    <li><%= link_to pet.name, pet_path(pet) %></li>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none' %></h5>
+          <%= link_to 'Show Pet', pet_path(pet), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
