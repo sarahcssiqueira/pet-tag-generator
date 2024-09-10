@@ -68,3 +68,5 @@ gem "bcrypt", "~> 3.1.7"
 gem "bootstrap"
 # SassC-rails for integrating Sass with Rails
 gem "sassc-rails"
+
+gem "dotenv-rails", groups: [ :development, :test, :production ]

@@ -2,6 +2,11 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_controller.default_url_options = { host: "localhost:3000", port: 3000 }
+  config.hosts << "localhost"
+  config.hosts << "pet-tag-generator.sarahjobs.com"
+  config.hosts << "sarahjobs.com"
+  config.hosts << /.*\.sarahjobs\.com/
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
