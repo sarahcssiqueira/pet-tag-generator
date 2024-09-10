@@ -1,0 +1,31 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to DigitalOcean
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.DO_USERNAME }}@${{ secrets.DO_SERVER_IP }} << 'EOF'
+          cd /var/www/pet-tag-generator
+          git fetch --tags
+          git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+          bundle install --deployment --without development test
+          rails db:migrate RAILS_ENV=production
+          RAILS_ENV=production bundle exec rake assets:precompile
+          sudo systemctl restart pet-tag-generator
+        EOF
