@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @pet %>
 
 <div>
-  <%= link_to "Update pet", edit_pet_path(@pet) %> |
-  <%= link_to "Back to pet members", pets_path %>
-
-  <%= button_to "Destroy this pet", @pet, method: :delete %>
+    <% if @pet.user == current_user %>
+        <%= link_to "Update pet", edit_pet_path(@pet) %>
+        <%= link_to "Delete this pet", @pet, method: :delete , data: { confirm: "Are you sure?" }%>
+        <%= link_to "Back to pet members", pets_path %>
+    <% end %>
 </div>

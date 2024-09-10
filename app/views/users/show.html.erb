@@ -1,19 +1,36 @@
-<h1 class="mb-4"><%= @user.name %></h1>
-<p class="mb-4">Registered e-mail: <%= @user.email %></p>
-<div class="mb-4">
-  <%= link_to 'Edit User Info', edit_user_path(@user), class: 'btn btn-warning' %>
+<% if @user %>
+<p>Welcome <strong><%= @user.name %>!</strong></p>
+<% else %>
+  <p>Welcome, guest!</p>
+<% end %>
+
+<% if @user %>
+<div class="d-flex justify-content-center">
+  <div class="me-2">
+    <%= link_to 'Edit Profile', edit_user_path(@user), class: 'btn btn-primary w-100' %>
+  </div>
+  <div>
+    <%= link_to "Add Pet", new_pet_path, class: "btn btn-primary w-100" %>
+  </div>
 </div>
 
-<h2 class="mb-4">My Pets</h2>
+<h2 class="mb-5">My Pets</h2>
 <div class="row">
   <% @user.pets.each do |pet| %>
     <div class="col-md-4 mb-4">
-      <div class="card">
+      <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none' %></h5>
-          <%= link_to 'Show Pet', pet_path(pet), class: 'btn btn-primary' %>
+            <p><strong>ID:</strong> <%= pet.id %></p>
+            <% if pet.pet_photo.present? %>
+                <%= image_tag pet.pet_photo, alt: "#{pet.name} photo", class: "img-fluid mx-auto d-block" %>
+            <% end%>
+          <%= link_to 'Edit & Print QR', pet_path(pet), class: 'btn btn-primary mt-3' %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+<% else %>
+    <p>Create account</p>
+<% end %>

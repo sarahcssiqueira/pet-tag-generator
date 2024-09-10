@@ -1,7 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "User" %>
 
+
+<%
+=begin%>
+ add security 
+<%
+=end%>
 <h1>Users List</h1>
 
 <div id="users">
@@ -13,5 +17,3 @@
   <% end %>
   
 </div>
-
-<%= link_to "New user", new_user_path %>

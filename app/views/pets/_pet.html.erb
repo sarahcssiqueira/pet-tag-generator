@@ -1,76 +1,85 @@
-<div id="<%= dom_id pet %>">
-  <div class="container-fluid">
+<div id="<%= dom_id pet %>" class="text-center mx-auto">
+  <div class="container">
+
+    <!-- Pet Name and ID -->
     <p>
-      <% if pet.name.present? %>
-        <strong>Name:</strong>
-        <%= pet.name %>
-      <% end %>
+      <strong>Name:</strong>
+      <%= pet.name.present? ? pet.name : "N/D" %>
+    </p>
+    <p>
+      <strong>ID:</strong>
+      <%= pet.id %>
     </p>
 
+    <!-- Pet Photo -->
     <p>
-      <% if pet.tutor.present? %>
-        <strong>Tutor:</strong>
-        <%= pet.tutor %>
-      <% end %>
+      <%= image_tag(pet.pet_photo.present? ? pet.pet_photo : 'pet-img-placeholder.jpg', alt: "#{pet.name || 'Pet'} photo", class: "img-fluid mx-auto d-block", size: "250x250") %>
     </p>
 
-    <% if pet.pet_race.present? %>
-      <p>
-        <strong>Race:</strong>
-        <%= pet.pet_race %>
-      </p>
-    <% end %>
+    <!-- Three Column Layout for Tutor Info, Pet Details, and Social Media -->
+    <div class="row mt-4">
+      
+      <!-- Tutor Info Column -->
+      <div class="col-md-4">
+        <h5><strong>Tutor Info</strong></h5>
+        <p>
+          <strong>Tutor Name:</strong>
+          <%= pet.tutor.present? ? pet.tutor : "N/D" %>
+        </p>
+        <p>
+          <strong>Tutor's Contact:</strong>
+          <%= pet.tutors_contact.present? ? pet.tutors_contact : "N/D" %>
+        </p>
+        <p>
+          <strong>City:</strong>
+          <%= pet.pet_city.present? ? pet.pet_city : "N/D" %>
+        </p>
+      </div>
 
-    <% if pet.tutors_contact.present? %>
-      <p>
-        <strong>Tutor's contact:</strong>
-        <%= pet.tutors_contact %>
-      </p>
-    <% end %>
+      <!-- Pet Details Column -->
+      <div class="col-md-4">
+        <h5><strong>Pet Details</strong></h5>
+        <p>
+          <strong>Race:</strong>
+          <%= pet.pet_race.present? ? pet.pet_race : "N/D" %>
+        </p>
+        <p>
+          <strong>Coat Color:</strong>
+          <%= pet.pet_coat_color.present? ? pet.pet_coat_color : "N/D" %>
+        </p>
+        <%
+=begin%>
+ <p>
+          <strong>Birthday:</strong>
+          <%= pet.birthday.present? ? pet.birthday.strftime("%B %d, %Y") : "N/D" %>
+        </p> 
+<%
+=end%>
+      </div>
 
-    <% if pet.pet_coat_color.present? %>
-      <p>
-        <strong>Coat Color:</strong>
-        <%= pet.pet_coat_color %>
-      </p>
-    <% end %>
+      <!-- Social Media Column -->
+      <div class="col-md-4">
+        <h5><strong>Social Media</strong></h5>
+        <p>
+          <strong>Instagram:</strong>
+          <%= pet.pet_instagram.present? ? pet.pet_instagram : "N/D" %>
+        </p>
+        <p>
+          <strong>TikTok:</strong>
+          <%= pet.pet_tiktok.present? ? pet.pet_tiktok : "N/D" %>
+        </p>
+      </div>
+    </div>
 
-    <% if pet.pet_photo.present? %>
-      <p>
-        <strong>Photo:</strong><br>
-        <%= image_tag pet.pet_photo, alt: "#{pet.name} photo", class: "img-fluid" %>
-      </p>
-    <% end %>
+    <!-- QR Code Section with Highlighting -->
+    <div id="printableArea" class="qr-code-container mb-4 mt-4">
+      <strong>QR Code:</strong><br>
+      <%= image_tag(url_for(pet.qrcode), class: "img-fluid mx-auto d-block", style: "width: 300px; height: 300px;") %>
+    </div>
 
-    <% if pet.pet_city.present? %>
-      <p>
-        <strong>City:</strong>
-        <%= pet.pet_city %>
-      </p>
-    <% end %>
-
-    <% if pet.pet_instagram.present? %>
-      <p>
-        <strong>Instagram:</strong>
-        <%= pet.pet_instagram %>
-      </p>
-    <% end %>
-
-    <% if pet.pet_tiktok.present? %>
-      <p>
-        <strong>TikTok:</strong>
-        <%= pet.pet_tiktok %>
-      </p>
-    <% end %>
+    <!-- Print QR Code Button -->
+    <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')">Print QR Code</button>
   </div>
-
-  <%= javascript_include_tag 'print_section' %>
-
-  <h3 class="mt-4">Print Pet QR Code</h3>
-
-  <div id="printableArea" class="mb-4">
-    <%= image_tag(url_for(pet.qrcode), class: "img-fluid") %>
-  </div>
-
-  <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')">Print</button>
 </div>
+
+<%= javascript_include_tag 'print_section' %>

@@ -21,7 +21,15 @@
     <%= render 'layouts/navbar' %>
 
     <div class="container my-4 py-4">
+
+     <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
         <%= yield %>
+
     </div>
 
   </body>

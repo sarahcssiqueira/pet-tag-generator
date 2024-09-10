@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
   def login
     if session[:user_id]
-      redirect_to user_path(session[:user_id]), notice: "You already logged in."
+      redirect_to user_path(session[:user_id])
     else
       render :login
     end

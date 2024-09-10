@@ -4,6 +4,13 @@
 
 <h1>Pet Members</h1>
 
+<div class="mb-3">
+    <% if current_user %>
+        <%= link_to "Add Pet", new_pet_path, class: "btn btn-primary mt-3" %>
+    <% end %>
+</div>
+
+
 <div id="pets">
   <div id="container">
     <div class="row">
@@ -11,10 +18,19 @@
         <div class="col-12 col-sm-6 col-md-4 mb-4">
           <div class="card">
             <div class="card-body">
-              <%= render pet %>
-              <p class="mt-3">
-                <%= link_to "Show pet", pet, class: "btn btn-primary" %>
-              </p>
+                <h5 class="card-title"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none' %></h5>
+                <p><strong>ID:</strong> <%= pet.id %></p>
+                
+                    <%= link_to pet_path(pet) do %>
+                        <%= image_tag(pet.pet_photo.present? ? pet.pet_photo : 'pet-img-placeholder.jpg', alt: "#{pet.name} photo", class: "img-fluid mx-auto d-block", size: "250x250" )%>
+                    <% end %>
+                
+                <% if current_user %>
+                    <%= link_to 'Edit & Print QR', pet_path(pet), class: 'btn btn-primary mt-3' %>
+                <% end %>
+                <% if !current_user %>
+                    <%= link_to "More", pet, class: "btn btn-primary mt-3" %>
+                <% end %>
             </div>
           </div>
         </div>
@@ -23,4 +39,3 @@
   </div>
 </div>
 
-<%= link_to "Register new pet", new_pet_path, class: "btn btn-success mt-3" %>
