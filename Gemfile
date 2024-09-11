@@ -70,3 +70,5 @@ gem "bootstrap"
 gem "sassc-rails"
 
 gem "dotenv-rails", groups: [ :development, :test, :production ]
+
+gem 'net-protocol', '>= 0'
