@@ -21,15 +21,11 @@ jobs:
     - name: Deploy to DigitalOcean
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.DO_USERNAME }}@${{ secrets.DO_SERVER_IP }} << 'EOF'
-          sudo git config --global --add safe.directory /var/www/pet-tag-generator
-          cd /var/www/pet-tag-generator
+          sudo git config --global --add safe.directory /home/rails/pet-tag-generator
+          cd /home/rails/pet-tag-generator
           git fetch --tags
           git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
-          bundle config set deployment true
-          bundle config set without 'development test'
-          bundle update net-pop
           bundle install
-          rails db:migrate RAILS_ENV=production
-          RAILS_ENV=production bundle exec rake assets:precompile
-          sudo systemctl restart puma
+          rails db:migrate
+          sudo systemctl restart pettag
         EOF
