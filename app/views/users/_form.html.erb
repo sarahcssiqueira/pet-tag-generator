@@ -1,0 +1,38 @@
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">
+      Oops! There was an error preventing this user from being saved:
+      </h4>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password %> 
+    <%= form.password_field :password, class: 'form-control' %>
+    <small class="form-text text-muted">Leave blank if you don't want to change the password.</small>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :password_confirmation, class: 'form-label' %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+  <%= form.submit 'Update User', class: 'btn btn-primary' %>
+<% end %>
+

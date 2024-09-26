@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [ :edit, :update ]
   def index
     @user = User.all
   end
@@ -29,28 +30,13 @@ class UsersController < ApplicationController
 
   # GET /user/1/edit
   def edit
-    # Already handled by the before_action :set_user
+    @user
   end
 
-
-  # PATCH/PUT /user/1 or /user/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @user.update(user_params)
-  #       format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @user }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @user.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-  #
-  #
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
+        format.html { redirect_to user_path(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -73,9 +59,9 @@ class UsersController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  # def set_user
-  #   @user = User.find(params[:id])
-  # end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
