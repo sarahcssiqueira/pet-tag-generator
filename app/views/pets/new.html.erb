@@ -1,11 +1,12 @@
-<% content_for :title, "New pet" %>
+<% if current_user %>
+    <% content_for :title, "New pet" %>
+    <h1>Register new pet</h1>
+    <%= render "form", pet: @pet %>
+    
+<% else %>
+    <p>You need to <%= link_to "log in", login_path %> to register a new pet.</p>
+    <div>
+        <%= link_to "Back to pets", pets_path %>
+    </div>
 
-<h1>Register new pet</h1>
-
-<%= render "form", pet: @pet %>
-
-<br>
-
-<div>
-  <%= link_to "Back to pets", pets_path %>
-</div>
+<% end %>
