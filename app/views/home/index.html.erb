@@ -31,22 +31,22 @@
             <li><strong>Free and Easy:</strong> No costs, no hassle. Create your pet's tag in minutes.</li>
             <li><strong>Instant Access:</strong> The QR code provides quick access to your pet's information.</li>
             <li><strong>Customizable:</strong> Tailor the information to fit your pet’s needs.</li>
-            <li><strong>Secure:</strong> Only authorized users can view or update the information.</li>
+            <li><strong>Secure:</strong> Only authorized users can update your pet information.</li>
         </ul>
     </div>
 
     <div class="bg-light py-4 mb-5 rounded">
         <h2 class="display-5">Ready to Get Started?</h2>
         <ol>
-            <li>Visit <%= link_to 'the register page', pets_path, class: 'cta-button' %></li>
-            <li>Register Your Pet</li>
-            <li>Generate Your QR Code</li>
-            <li>Print and Attach</li>
+            <li><strong>Create a free <%= link_to 'account: ',  new_user_path, class: 'cta-button' %></strong> Sign up to access the pet management features.</li>
+            <li><strong>Add Your Pet: </strong>Enter details about your pet to create a profile.</li>
+            <li><strong>Fill in the pet's information: </strong>Provide important details like name, breed, and any special notes.</li>
+            <li><strong>Print and Attach the QR Code: </strong>A QR code is automatically generated—simply print it and attach it wherever needed (e.g., on a pet tag, collar, or carrier).</li>
         </ol>
 
         <p>Make sure your pet is always safe and secure with our Free Pet Tag Generator. It’s a small step that can make a big difference.</p>
 
-        <%= link_to 'Get Started Now!', pets_path, class: 'cta-button' %>
+        <%= link_to 'Get Started Now!',  new_user_path, class: 'cta-button' %>
     </div>
 </div>
 
