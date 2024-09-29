@@ -15,3 +15,31 @@
  */
 
  @import "bootstrap";
+
+
+ .image-crop {
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%; 
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px #333333; 
+}
+
+.image-crop img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%; 
+    min-height: 100%; 
+    transform: translate(-50%, -50%);
+    object-fit: cover; 
+}
+
+.qr-code {
+    width: 300px; 
+    height: 300px; 
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px #333333; 
+}

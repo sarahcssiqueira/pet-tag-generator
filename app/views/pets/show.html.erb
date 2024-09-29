@@ -1,9 +1,12 @@
-<%= render @pet %>
+<div class="container">
 
 <div>
     <% if @pet.user == current_user %>
-        <%= link_to "Update pet", edit_pet_path(@pet) %>
-        <%= link_to "Delete this pet", @pet, method: :delete , data: { confirm: "Are you sure?" }%>
-        <%= link_to "Back to pet members", pets_path %>
+        <%= link_to "Update pet", edit_pet_path(@pet), class: "btn btn-primary" %>
+        <%= link_to "Delete this pet", @pet, method: :delete , data: { confirm: "Are you sure?" }, class: "btn btn-primary"%>
     <% end %>
+</div>
+
+<%= render @pet %>
+
 </div>

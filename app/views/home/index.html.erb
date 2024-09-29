@@ -4,19 +4,19 @@
     </div>
 </header>
 
-<div class="container my-5">
-    <div class="bg-light py-4 mb-5 rounded">
-        <h2 class="display-5">Give Your Pet the Safety They Deserve</h2>
+<div class="container my-5 ">
+    <div class="bg-light py-4 mb-5 rounded p-5">
+        <h2 class="display-5 text-center mb-3">Give Your Pet the Safety They Deserve</h2>
         <p>We believe every pet deserves to be safe and secure. That's why we're excited to introduce our <strong>Free Pet Tag Generator</strong> – a simple and efficient way to ensure your furry friends are always protected.</p>
     </div>
 
-    <div class="bg-light py-4 mb-5 rounded">
-        <h2 class="display-5">What is the Free Pet Tag Generator?</h2>
+    <div class="bg-light py-4 mb-5 rounded p-5">
+        <h2 class="display-5 text-center mb-3">What is the Free Pet Tag Generator?</h2>
         <p>Our Free Pet Tag Generator is an easy-to-use online tool that lets you create personalized pet tags at no cost. With just a few clicks, you can generate a unique QR code that will be linked to a dedicated webpage with all the information you provide about your pet.</p>
     </div>
 
-    <div class="bg-light py-4 mb-5 rounded">
-        <h2 class="display-5">How It Works</h2>
+    <div class="bg-light py-4 mb-5 rounded p-5">
+        <h2 class="display-5 text-center mb-3">How It Works</h2>
         <ul class="list-unstyled">
             <li><strong>Register Your Pet:</strong> Fill out a simple form with details about your pet, including their name, your contact information, and any other important notes.</li>
             <li><strong>Generate a QR Code:</strong> Our generator will create a custom QR code that you can print on a tag. This QR code will direct anyone who scans it to a webpage with the information you’ve provided.</li>
@@ -25,8 +25,8 @@
         </ul>
     </div>
 
-    <div class="bg-light py-4 mb-5 rounded">
-        <h2 class="display-5">Why Use This Pet Tag Generator?</h2>
+    <div class="bg-light py-4 mb-5 rounded p-5">
+        <h2 class="display-5 text-center mb-3">Why Use This Pet Tag Generator?</h2>
         <ul class="list-unstyled">
             <li><strong>Free and Easy:</strong> No costs, no hassle. Create your pet's tag in minutes.</li>
             <li><strong>Instant Access:</strong> The QR code provides quick access to your pet's information.</li>
@@ -35,18 +35,21 @@
         </ul>
     </div>
 
-    <div class="bg-light py-4 mb-5 rounded">
-        <h2 class="display-5">Ready to Get Started?</h2>
+    <div class="bg-light py-4 mb-5 rounded p-5">
+        <h2 class="display-5 text-center mb-3">Ready to Get Started?</h2>
         <ol>
-            <li><strong>Create a free <%= link_to 'account: ',  new_user_path, class: 'cta-button' %></strong> Sign up to access the pet management features.</li>
+            <li><strong>Create a free <%= link_to 'account',  new_user_path, class: 'cta-button' %></strong>: Sign up to access the pet management features.</li>
             <li><strong>Add Your Pet: </strong>Enter details about your pet to create a profile.</li>
             <li><strong>Fill in the pet's information: </strong>Provide important details like name, breed, and any special notes.</li>
             <li><strong>Print and Attach the QR Code: </strong>A QR code is automatically generated—simply print it and attach it wherever needed (e.g., on a pet tag, collar, or carrier).</li>
         </ol>
 
-        <p>Make sure your pet is always safe and secure with our Free Pet Tag Generator. It’s a small step that can make a big difference.</p>
+        <h2 class="display-5 text-center mb-3 mt-5">Make sure your pet is always safe and secure with our Free Pet Tag Generator!</h2>
+        <p class="text-center">It’s a small step that can make a big difference.</p>
 
-        <%= link_to 'Get Started Now!',  new_user_path, class: 'cta-button' %>
+        <div class="text-center">
+            <%= link_to 'Get Started Now!', new_user_path, class: 'btn btn-primary m-3 p-3' %>
+        </div>
     </div>
 </div>
 

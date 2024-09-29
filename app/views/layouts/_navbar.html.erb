@@ -1,29 +1,32 @@
-<!-- app/views/layouts/_navbar.html.erb -->
-
-<div class="container-flouid">
+<div class="container-fluid">
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
+
       <a class="navbar-brand" href="/">
-        <h3>Pet Tag Generator</h3>
+        <h1>Pet Tag Generator</h1>
       </a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+
+        <ul class="navbar-nav me-auto d-flex">
+          <li class="nav-item mt-3">
             <%= link_to 'Home', root_path, class: 'nav-link active' %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item mt-3">
             <%= link_to 'Pet Members', pets_path, class: 'nav-link active' %>
           </li>
-            <li class="nav-item">
+            <li class="nav-item mt-3">
             <%= link_to 'Open Source', github_repo_path, class: 'nav-link active', target: '_blank' %>
           </li>
-            <li class="nav-item">   
-                <%= link_to "Add Pet", new_pet_path, class: "btn btn-primary mt-3" %>
-            </li>
+            <div class="nav-item mb-3">   
+                <%= link_to "Add Your Pet", new_pet_path, class: "btn btn-primary mt-3" %>
+            </div>
         </ul>
+
         <form class="form-inline" method="post" action="<%= logout_path %>">
             <%= hidden_field_tag :_method, :delete %>
             <% if current_user %>
@@ -34,7 +37,7 @@
                 <%= submit_tag 'Logout', class: 'btn btn-outline-success' %>
             <% else %>
             <%= link_to 'Login', login_path, class: 'btn btn-outline-primary mr-2' %>
-            <%= link_to 'Become Member', new_user_path, class: 'btn btn-outline-success' %>
+            <%= link_to 'Become Registered Tutor', new_user_path, class: 'btn btn-outline-success' %>
             <% end %>
         </form>
 

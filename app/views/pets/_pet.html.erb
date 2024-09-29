@@ -1,25 +1,16 @@
 <div id="<%= dom_id pet %>" class="text-center mx-auto">
-  <div class="container">
+  <div class="container my-3">
+    <div>
+        <strong class="display-3 my-3"><%= pet.name.present? ? pet.name : "N/D" %></strong>
+        <p>ID:
+            <strong><%= pet.id %></strong>
+        </p>
+    </div>
 
-    <!-- Pet Name and ID -->
-    <p>
-      <strong>Name:</strong>
-      <%= pet.name.present? ? pet.name : "N/D" %>
-    </p>
-    <p>
-      <strong>ID:</strong>
-      <%= pet.id %>
-    </p>
-
-    <!-- Pet Photo -->
-    <p>
-      <%= image_tag(pet.pet_photo.present? ? pet.pet_photo : 'pet-img-placeholder.jpg', alt: "#{pet.name || 'Pet'} photo", class: "img-fluid mx-auto d-block", size: "250x250") %>
-    </p>
-
-    <!-- Three Column Layout for Tutor Info, Pet Details, and Social Media -->
-    <div class="row mt-4">
+      <%= image_tag(pet.pet_photo.present? ? pet.pet_photo : 'pet-img-placeholder.jpg', alt: "#{pet.name || 'Pet'} photo", class: "img-fluid mx-auto d-block image-crop") %>
+    
+     <div class="row bg-light py-5 rounded">
       
-      <!-- Tutor Info Column -->
       <div class="col-md-4">
         <h5><strong>Tutor Info</strong></h5>
         <p>
@@ -36,7 +27,6 @@
         </p>
       </div>
 
-      <!-- Pet Details Column -->
       <div class="col-md-4">
         <h5><strong>Pet Details</strong></h5>
         <p>
@@ -47,17 +37,9 @@
           <strong>Coat Color:</strong>
           <%= pet.pet_coat_color.present? ? pet.pet_coat_color : "N/D" %>
         </p>
-        <%
-=begin%>
- <p>
-          <strong>Birthday:</strong>
-          <%= pet.birthday.present? ? pet.birthday.strftime("%B %d, %Y") : "N/D" %>
-        </p> 
-<%
-=end%>
+        
       </div>
 
-      <!-- Social Media Column -->
       <div class="col-md-4">
         <h5><strong>Social Media</strong></h5>
         <p>
@@ -71,14 +53,12 @@
       </div>
     </div>
 
-    <!-- QR Code Section with Highlighting -->
-    <div id="printableArea" class="qr-code-container mb-4 mt-4">
-      <strong>QR Code:</strong><br>
-      <%= image_tag(url_for(pet.qrcode), class: "img-fluid mx-auto d-block", style: "width: 300px; height: 300px;") %>
+    <div id="printableArea" class="my-5">
+      <%= image_tag(url_for(pet.qrcode), class: "img-fluid mx-auto d-block qr-code") %>
     </div>
 
-    <!-- Print QR Code Button -->
     <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')">Print QR Code</button>
+
   </div>
 </div>
 

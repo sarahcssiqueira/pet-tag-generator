@@ -1,34 +1,45 @@
 <% if @user %>
-<p>Welcome <strong><%= @user.name %>!</strong></p>
+<p class="">Welcome <strong><%= @user.name %>!</strong></p>
 <% else %>
-  <p>Welcome, guest!</p>
+  <p class="3">Welcome, guest!</p>
 <% end %>
 
 <% if @user %>
-<div class="d-flex justify-content-center">
+<div class="d-flex">
   <div class="me-2">
-    <%= link_to 'Edit Profile', edit_user_path(@user), class: 'btn btn-primary w-100' %>
+    <%= link_to 'Edit Your Profile', edit_user_path(@user), class: 'btn btn-primary w-100' %>
   </div>
   <div>
     <%= link_to "Add Pet", new_pet_path, class: "btn btn-primary w-100" %>
   </div>
 </div>
 
-<h2 class="mb-5">My Pets</h2>
+<h2 class="mb-5 mt-5">My Pets</h2>
 <div class="row">
   <% @user.pets.each do |pet| %>
-    <div class="col-md-4 mb-4">
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none' %></h5>
-            <p><strong>ID:</strong> <%= pet.id %></p>
-            <% if pet.pet_photo.present? %>
-                <%= image_tag pet.pet_photo, alt: "#{pet.name} photo", class: "img-fluid mx-auto d-block" %>
-            <% end%>
-          <%= link_to 'Edit & Print QR', pet_path(pet), class: 'btn btn-primary mt-3' %>
+            <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none' %></h5>
+                <p class="text-center"><strong>ID:</strong> <%= pet.id %></p>
+                
+                    <%= link_to pet_path(pet) do %>
+                        <%= image_tag(pet.pet_photo.present? ? pet.pet_photo : 'pet-img-placeholder.jpg', alt: "#{pet.name} photo", class: "img-fluid mx-auto d-block image-crop" )%>
+                    <% end %>
+                
+                <div class="text-center">
+
+                    <% if current_user %>
+                        <%= link_to 'Edit & Print QR', pet_path(pet), class: 'btn btn-primary mt-3' %>
+                    <% end %>
+                    <% if !current_user %>
+                        <%= link_to "More", pet, class: "btn btn-primary mt-3" %>
+                    <% end %>
+
+                </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
   <% end %>
 </div>
 <% else %>
