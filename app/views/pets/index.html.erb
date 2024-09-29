@@ -6,7 +6,7 @@
 
 <div class="mb-3 text-center mb-5">
     <% if current_user %>
-        <%= link_to "Add New Pet", new_pet_path, class: "btn btn-primary mt-3" %>
+        <%= link_to "Add New Pet", new_pet_path, class: "btn btn-info mt-3" %>
     <% end %>
 </div>
 
@@ -18,7 +18,7 @@
         <div class="col-12 col-sm-6 col-md-4 mb-4">
           <div class="card bg-light">
             <div class="card-body">
-                <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none' %></h5>
+                <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none text-danger' %></h5>
                 <p class="text-center"><strong>ID:</strong> <%= pet.id %></p>
                 
                     <%= link_to pet_path(pet) do %>

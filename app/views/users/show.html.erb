@@ -1,5 +1,5 @@
 <% if @user %>
-<p class="">Welcome <strong><%= @user.name %>!</strong></p>
+    <p class="">Welcome <strong><%= @user.name %>!</strong></p>
 <% else %>
   <p class="3">Welcome, guest!</p>
 <% end %>
@@ -7,10 +7,10 @@
 <% if @user %>
 <div class="d-flex">
   <div class="me-2">
-    <%= link_to 'Edit Your Profile', edit_user_path(@user), class: 'btn btn-primary w-100' %>
+    <%= link_to 'Edit Your Profile', edit_user_path(@user), class: 'btn btn-danger w-100' %>
   </div>
   <div>
-    <%= link_to "Add Pet", new_pet_path, class: "btn btn-primary w-100" %>
+    <%= link_to "Add New Pet", new_pet_path, class: "btn btn-info w-100" %>
   </div>
 </div>
 
@@ -20,7 +20,7 @@
             <div class="col-12 col-sm-6 col-md-4 mb-4">
           <div class="card bg-light">
             <div class="card-body">
-                <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none' %></h5>
+                <h5 class="card-title text-center"><%= link_to pet.name, pet_path(pet), class: 'text-decoration-none text-danger' %></h5>
                 <p class="text-center"><strong>ID:</strong> <%= pet.id %></p>
                 
                     <%= link_to pet_path(pet) do %>

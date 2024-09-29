@@ -1,8 +1,8 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-lg bg-light">
+<header class="sticky-top bg-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
 
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand text-primary" href="/">
         <h1>Pet Tag Generator</h1>
       </a>
 
@@ -14,16 +14,16 @@
 
         <ul class="navbar-nav me-auto d-flex">
           <li class="nav-item mt-3">
-            <%= link_to 'Home', root_path, class: 'nav-link active' %>
+            <%= link_to 'Home', root_path, class: 'nav-link active text-dark' %>
           </li>
           <li class="nav-item mt-3">
-            <%= link_to 'Pet Members', pets_path, class: 'nav-link active' %>
+            <%= link_to 'Pet Members', pets_path, class: 'nav-link active text-dark' %>
           </li>
             <li class="nav-item mt-3">
-            <%= link_to 'Open Source', github_repo_path, class: 'nav-link active', target: '_blank' %>
+            <%= link_to 'Open Source', github_repo_path, class: 'nav-link active text-dark', target: '_blank' %>
           </li>
             <div class="nav-item mb-3">   
-                <%= link_to "Add Your Pet", new_pet_path, class: "btn btn-primary mt-3" %>
+                <%= link_to "Add Your Pet", new_pet_path, class: "btn btn-primary text-dark mt-3" %>
             </div>
         </ul>
 
@@ -44,4 +44,4 @@
       </div>
     </div>
   </nav>
-</div>
+</header>

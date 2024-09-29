@@ -2,8 +2,8 @@
 
 <div>
     <% if @pet.user == current_user %>
-        <%= link_to "Update pet", edit_pet_path(@pet), class: "btn btn-primary" %>
-        <%= link_to "Delete this pet", @pet, method: :delete , data: { confirm: "Are you sure?" }, class: "btn btn-primary"%>
+        <%= link_to "Update pet", edit_pet_path(@pet), class: "btn btn-danger" %>
+        <%= link_to "Delete this pet", @pet, method: :delete , data: { confirm: "Are you sure?" }, class: "btn btn-info"%>
     <% end %>
 </div>
 
