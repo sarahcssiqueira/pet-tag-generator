@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :pets, only: [ :index, :show, :new, :create, :edit, :update, :destroy ]
 
   # Privacy Policy
-  resources :privacy_policy, only: [ :index ]
+  resources :privacy_policy, path: "privacy-policy",  only: [ :index ]
 
   # Homepage
   get "home/index"
