@@ -10,58 +10,75 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control", required: true %>
-  </div>
+<div class="bg-primary p-5">
+    <form>
 
-  <div class="mb-3">
-    <%= form.label :tutor, class: "form-label" %>
-    <%= form.text_field :tutor, class: "form-control" %>
-  </div>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control", required: true %>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :pet_race, class: "form-label" %>
-    <%= form.text_field :pet_race, class: "form-control" %>
-  </div>
 
-  <div class="mb-3">
-    <%= form.label :tutors_contact, class: "form-label" %>
-    <%= form.text_field :tutors_contact, class: "form-control" %>
-  </div>
 
-  <div class="mb-3">
-    <%= form.label :pet_coat_color, class: "form-label" %>
-    <%= form.text_field :pet_coat_color, class: "form-control" %>
-  </div>
+    <div class="row">
+        <div class="col mb-3">
+            <%= form.label :pet_race, class: "form-label" %>
+            <%= form.text_field :pet_race, class: "form-control" %>
+        </div>
 
- <div class="mb-3">
-    <%= form.label :pet_photo, class: "form-label" %>
-    <%= form.file_field :pet_photo, class: "form-control", accept: "image/*" %>
-    <small class="form-text text-muted">Max size: 1MB</small>
-  </div>
+        <div class="col mb-3">
+            <%= form.label :pet_coat_color, class: "form-label" %>
+            <%= form.text_field :pet_coat_color, class: "form-control" %>
+        </div>
 
-  <div class="mb-3">
-    <%= form.label :pet_city, class: "form-label" %>
-    <%= form.text_field :pet_city, class: "form-control" %>
-  </div>
+        <div class="col mb-3">
+            <%= form.label :pet_birthdate, class: "form-label" %>
+            <%= form.date_field :pet_birthdate, class: "form-control" %>
+    </div>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :pet_instagram, class: "form-label" %>
-    <%= form.text_field :pet_instagram, class: "form-control" %>
-  </div>
+    <div class="mb-3">
+        <%= form.label :pet_photo, class: "form-label" %>
+        <%= form.file_field :pet_photo, class: "form-control", accept: "image/*" %>
+        <small class="form-text text-muted">Max size: 1MB</small>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :pet_tiktok, class: "form-label" %>
-    <%= form.text_field :pet_tiktok, class: "form-control" %>
-  </div>
+    <div class="mb-3">
+        <%= form.label :pet_city, class: "form-label" %>
+        <%= form.text_field :pet_city, class: "form-control" %>
+    </div>
 
-  <div class="mb-3">
-    <%= form.label :pet_birthdate, class: "form-label" %>
-    <%= form.date_field :pet_birthdate, class: "form-control" %>
-  </div>
+    <h3 class="my-3">Social Media</h3>
 
-  <div>
-    <%= form.submit "Save Pet", class: "btn btn-primary" %>
-  </div>
-<% end %>
+    <div class="row">
+        <div class="col mb-3">
+            <%= form.label :pet_instagram, class: "form-label" %>
+            <%= form.text_field :pet_instagram, class: "form-control" %>
+        </div>
+
+        <div class="col mb-3">
+            <%= form.label :pet_tiktok, class: "form-label" %>
+            <%= form.text_field :pet_tiktok, class: "form-control" %>
+        </div>
+    </div>
+
+    <h3 class="my-3">Tutor Info</h3>
+
+    <div class=row>
+            <div class="col mb-3">
+                <%= form.label :tutor, class: "form-label" %>
+                <%= form.text_field :tutor, class: "form-control" %>
+            </div>
+
+            <div class="col mb-3">
+                <%= form.label :tutors_contact, class: "form-label" %>
+                <%= form.text_field :tutors_contact, class: "form-control" %>
+            </div>
+    </div>
+
+    <div>
+        <%= form.submit "Save Pet", class: "btn btn-danger" %>
+    </div>
+    <% end %>
+    </form>
+</div>

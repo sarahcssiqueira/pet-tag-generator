@@ -1,12 +1,8 @@
 <% if current_user %>
     <% content_for :title, "New pet" %>
-    <h1>Register new pet</h1>
-    <%= render "form", pet: @pet %>
-    
+    <h1 class="text-center mb-3">Register new pet</h1>
+    <%= render "form", pet: @pet %> 
 <% else %>
-    <p>You need to <%= link_to "log in", new_user_path %> to register a new pet.</p>
-    <div>
-        <%= link_to "Back to pets", pets_path %>
-    </div>
-
+    <p class="text-center">You need to <%= link_to "log in", new_user_path %> to register a new pet.</p>
+    <%= link_to 'Login', login_path, class: 'btn btn-primary my-2' %>
 <% end %>

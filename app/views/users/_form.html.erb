@@ -12,27 +12,35 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
-  </div>
+<div class="bg-primary p-5">
+    <form>
+        <div class="row">
+            <div class="col mb-3">
+                <%= form.label :name %>
+                <%= form.text_field :name, class: 'form-control' %>
+            </div>
 
-  <div class="mb-3">
-    <%= form.label :email %>
-    <%= form.email_field :email, class: 'form-control' %>
-  </div>
+            <div class="col mb-3">
+                <%= form.label :email %>
+                <%= form.email_field :email, class: 'form-control' %>
+            </div>
 
-  <div class="mb-3">
-    <%= form.label :password %> 
-    <%= form.password_field :password, class: 'form-control' %>
-    <small class="form-text text-muted">Leave blank if you don't want to change the password.</small>
-  </div>
+        </div>
 
-  <div class="mb-3">
-    <%= form.label :password_confirmation, class: 'form-label' %>
-    <%= form.password_field :password_confirmation, class: 'form-control' %>
-  </div>
+        <div class="row">
+            <div class="col mb-3">
+                <%= form.label :password %> 
+                <%= form.password_field :password, class: 'form-control' %>
+                <small class="form-text text-muted">Leave blank if you don't want to change the password.</small>
+            </div>
 
-  <%= form.submit 'Update User', class: 'btn btn-primary' %>
-<% end %>
+            <div class="col mb-3">
+                <%= form.label :password_confirmation, class: 'form-label' %>
+                <%= form.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+        </div>
 
+        <%= form.submit 'Update User', class: 'btn btn-danger' %>
+        <% end %>
+    </form>
+</div>
