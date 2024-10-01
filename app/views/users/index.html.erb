@@ -1,19 +1,15 @@
 <% content_for :title, "User" %>
+<% if current_user.admin? %> 
+    <h1 class="text-center mb-3">Users List</h1>
 
-
-<%
-=begin%>
- add security 
-<%
-=end%>
-<h1>Users List</h1>
-
-<div id="users">
-  <% @user.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-  
-</div>
+    <div id="users">
+        <% @user.each do |user| %>
+            <%= render user %>
+            <p>
+            <%= link_to "Show this user", user %>
+            </p>
+        <% end %>
+    </div>
+<% else %>
+    <p>You are not allowed to see this page.</p>
+<% end %>

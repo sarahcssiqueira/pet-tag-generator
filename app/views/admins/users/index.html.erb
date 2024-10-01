@@ -1,0 +1,30 @@
+<h1 class="text-center mb-3">Manage Users</h1>
+
+<% if @users.present? %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td ><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td>
+          <%= link_to 'Edit', edit_admins_user_path(user),  class: "btn btn-info" %>
+          <%= link_to 'Delete', admins_user_path(user), method: :delete, data: { confirm: "Are you sure?" },  class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<p>No users to manage</p>
+<% end %>
+

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :edit, :update ]
+  before_action :authorize_admin!, only: [ :edit, :update, :destroy ]
+
   def index
     @user = User.all
   end
@@ -46,14 +48,14 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1 or /pets/1.json
-  # def destroy
-  #   @user.destroy!
+  def destroy
+    @user.destroy!
 
-  #   respond_to do |format|
-  #     format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
 
   private

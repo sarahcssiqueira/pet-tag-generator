@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   # Users routes
   resources :users, only: [ :index, :new, :create, :edit, :update, :show, :destroy ]
 
+  namespace :admins do
+    resources :users, only: [ :index, :edit, :update, :destroy ]
+  end
+
   # Sessions routes
   get "/login", to: "sessions#login"
   post "/login", to: "sessions#create"

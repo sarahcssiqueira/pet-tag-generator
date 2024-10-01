@@ -1,0 +1,32 @@
+<h1 class="text-center mb-3">Edit User</h1>
+
+<%= form_with(model: [:admins, @user], local: true) do |form| %>
+  <div class="bg-primary p-5">
+
+  <form>
+    <div class="row">
+        <div class="col mb-3">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="col mb-3">
+            <%= form.label :email %>
+            <%= form.email_field :email, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <%= form.label :role %>
+            <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div>
+    <%= form.submit "Update User", class: 'btn btn-danger' %>
+    </div>
+
+  </form>
+
+  </div>
+<% end %>
