@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :edit, :update ]
-  before_action :authorize_admin!, only: [ :edit, :update, :destroy ]
+  before_action :authorize_access!, only: [ :edit, :update, :destroy ]
 
   def index
     @user = User.all
@@ -57,6 +57,12 @@ class UsersController < ApplicationController
     end
   end
 
+  # Logic for authorization
+  def authorize_access!
+      unless current_user.admin? || current_user == @user
+        redirect_to root_path, alert: "You are not authorized to perform this action."
+      end
+  end
 
   private
 
